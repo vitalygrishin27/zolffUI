@@ -87,7 +87,7 @@ export default class TeamList extends Component {
     };
 
     getAllTeams() {
-        axios.get("https://derff.herokuapp.com/ui/teams")
+        axios.get(localStorage.getItem("host") + "teams")
             .then(response => response.data)
             .then((data) => {
                 this.setState({
@@ -104,7 +104,7 @@ export default class TeamList extends Component {
     };
 
     deleteTeam = (teamId) => {
-        axios.delete("https://derff.herokuapp.com/ui/team/" + teamId)
+        axios.delete(localStorage.getItem("host") + "team/" + teamId)
             //  axios.delete("http://localhost:8092/ui/team/" + teamId)
             .then(response => {
                 if (response.data != null) {
